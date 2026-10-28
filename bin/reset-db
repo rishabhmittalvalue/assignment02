@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Rebuilds the database from the migration files in db/migrate. Every row is
+# deleted; your files are not touched. Use it when the database is in a state
+# you can't explain, then run your scripts again.
+#
+#   bin/reset-db
+set -e
+cd "$(dirname "$0")/.."
+
+bin/rails db:migrate:reset
+echo "Database rebuilt from db/migrate. Every table is empty."
