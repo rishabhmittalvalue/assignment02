@@ -25,6 +25,8 @@ A movie's rating must be one of G, PG, PG-13, R or NC-17.
 A movie's studio can be found using the movie's studio id.
 A movie's roles can be found using the movie's id, in the order they were added.
 When all movies are listed, they come in order of release year, then title.
+Every movie must have a director.
+Every movie a director made can be found using the director's name.
 
 ## Actor
 Every actor must have a name.

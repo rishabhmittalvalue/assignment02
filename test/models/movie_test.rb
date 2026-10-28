@@ -205,4 +205,42 @@ class MovieTest < ActiveSupport::TestCase
 
     assert_equal ["Batman Begins", "Arctic Knights", "The Dark Knight", "The Dark Knight Rises"], titles
   end
+
+  test "Every movie must have a director." do
+    warner = make_studio("Warner Bros.")
+
+    movie = build_movie(warner)
+    movie["director"] = nil
+    assert_not movie.save, "a movie with no director was saved"
+
+    movie = build_movie(warner)
+    movie["director"] = ""
+    assert_not movie.save, "a movie with a blank director was saved"
+
+    assert_equal 0, Movie.count
+  end
+
+  test "Every movie a director made can be found using the director's name." do
+    warner = make_studio("Warner Bros.")
+
+    begins = build_movie(warner)
+    begins["director"] = "Christopher Nolan"
+    begins.save!
+
+    other = build_movie(warner)
+    other["title"] = "Batman"
+    other["year_released"] = 1989
+    other["director"] = "Tim Burton"
+    other.save!
+
+    dark_knight = build_movie(warner)
+    dark_knight["title"] = "The Dark Knight"
+    dark_knight["year_released"] = 2008
+    dark_knight["director"] = "Christopher Nolan"
+    dark_knight.save!
+
+    found = Movie.where({ "director" => "Christopher Nolan" })
+
+    assert_equal [begins["id"], dark_knight["id"]].sort, found.map { |movie| movie["id"] }.sort
+  end
 end
