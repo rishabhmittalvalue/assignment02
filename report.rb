@@ -17,6 +17,7 @@ movies = [
     "title" => "Batman Begins",
     "year_released" => 2005,
     "rated" => "PG-13",
+    "director" => "Christopher Nolan",
     "cast" => [
       ["Christian Bale", "Bruce Wayne"],
       ["Michael Caine", "Alfred"],
@@ -29,6 +30,7 @@ movies = [
     "title" => "The Dark Knight",
     "year_released" => 2008,
     "rated" => "PG-13",
+    "director" => "Christopher Nolan",
     "cast" => [
       ["Christian Bale", "Bruce Wayne"],
       ["Heath Ledger", "Joker"],
@@ -41,6 +43,7 @@ movies = [
     "title" => "The Dark Knight Rises",
     "year_released" => 2012,
     "rated" => "PG-13",
+    "director" => "Christopher Nolan",
     "cast" => [
       ["Christian Bale", "Bruce Wayne"],
       ["Gary Oldman", "Commissioner Gordon"],
@@ -56,6 +59,7 @@ for data in movies
   movie["title"] = data["title"]
   movie["year_released"] = data["year_released"]
   movie["rated"] = data["rated"]
+  movie["director"] = data["director"]
   movie["studio_id"] = warner["id"]
   movie.save!
 

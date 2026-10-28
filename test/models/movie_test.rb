@@ -13,6 +13,7 @@ class MovieTest < ActiveSupport::TestCase
     movie["title"] = title
     movie["year_released"] = year_released
     movie["rated"] = rated
+    movie["director"] = "Christopher Nolan"
     movie["studio_id"] = studio["id"]
     movie.save!
     movie
@@ -40,6 +41,7 @@ class MovieTest < ActiveSupport::TestCase
     movie["title"] = "Batman Begins"
     movie["year_released"] = 2005
     movie["rated"] = "PG-13"
+    movie["director"] = "Christopher Nolan"
     movie["studio_id"] = studio["id"]
     movie
   end

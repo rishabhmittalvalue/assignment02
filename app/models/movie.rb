@@ -3,7 +3,7 @@ class Movie < ApplicationRecord
 
   default_scope { order("year_released", "title") }
 
-  validates :title, :year_released, :rated, :studio_id, presence: true
+  validates :title, :year_released, :rated, :studio_id, :director, presence: true
   validates :title, uniqueness: { scope: [:studio_id, :year_released] }
   validates :year_released, numericality: { only_integer: true, greater_than_or_equal_to: 1888, less_than_or_equal_to: ->(movie) { Date.today.year + 1 } }, allow_nil: true
   validates :rated, inclusion: { in: RATINGS }, allow_blank: true

@@ -13,6 +13,7 @@ class StudioTest < ActiveSupport::TestCase
     movie["title"] = title
     movie["year_released"] = year_released
     movie["rated"] = rated
+    movie["director"] = "Christopher Nolan"
     movie["studio_id"] = studio["id"]
     movie.save!
     movie
