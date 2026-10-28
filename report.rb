@@ -89,7 +89,7 @@ puts ""
 
 for movie in Movie.all
   studio = Studio.find_by({ "id" => movie["studio_id"] })
-  puts "#{movie["title"].ljust(23)}#{movie["year_released"].to_s.ljust(15)}#{movie["rated"].ljust(7)}#{studio["name"]}"
+  puts "#{movie["title"].ljust(23)}#{movie["year_released"].to_s.ljust(15)}#{movie["rated"].ljust(7)}#{studio["name"].ljust(14)}#{movie["director"]}"
 end
 
 # The Top Cast report. Each movie's roles come in the order they were added.
